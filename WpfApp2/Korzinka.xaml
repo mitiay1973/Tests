@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfApp2.Korzinka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Korzinka" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="List" Margin="0,0,0,50">
+            <ListView.ItemTemplate>
+                <ItemContainerTemplate>
+                    <Grid>
+                        <Image Source="{Binding Path=Books.Image}" Width="100" Height="100" HorizontalAlignment="Left"></Image>
+                        <Label Content="{Binding Books.Title}" Margin="100,0,0,0"></Label>
+                        <Label Content="{Binding Books.Cost}" Margin="300,0,0,0"></Label>
+                        <Label Content="-" Margin="330,0,0,0" MouseLeftButtonDown="Label_MouseLeftButtonDown"></Label>
+                        <Label Content="{Binding koll}" Margin="340,0,0,0"></Label>
+                        <Label Content="+" Margin="350,0,0,0" MouseLeftButtonDown="Label_MouseLeftButtonDown_1"></Label>
+                    </Grid>
+                </ItemContainerTemplate>
+            </ListView.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить в корзину" ></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListView>
+        <Button Content="Очистить корзину" HorizontalAlignment="Left" Margin="194,0,0,25" x:Name="delete" Click="delete_Click" Height="20" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.54"/>
+        <Button Content="Заказать" Margin="0,0,65,25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="129" x:Name="pynkt" Click="pynkt_Click"/>
+        <ComboBox Margin="0,0,254,20" HorizontalAlignment="Right" Width="229" DisplayMemberPath="Avtor" x:Name="combo" Height="30" VerticalAlignment="Bottom"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="40,0,0,12" VerticalAlignment="Bottom" x:Name="ItogCost" Width="70"/>
+    </Grid>
+</Window>
