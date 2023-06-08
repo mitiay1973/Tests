@@ -49,7 +49,6 @@ namespace WpfApp2
             books[0]=List.SelectedItem as Books;
             int k = 1;
             bool pr = false;
-                bool pr1 = false;
             int p=0;
             for (int i = 0; i < b.Count; i++)
             {
@@ -61,12 +60,7 @@ namespace WpfApp2
                         pr = true;
                         p = i;
                     }
-                    else
-                    {
-                        pr1 = true;
-                        MessageBox.Show("Отсутствует на складе");
-                        break;
-                    }
+
                 }
             }
             if(pr==true)
@@ -75,11 +69,9 @@ namespace WpfApp2
             }
             else
             {
-                if(pr1==false)
-                {
+
                     var add = new Basket { id_Book = books[0].Id_Product, koll = k };
                     Entities.GetContext().Basket.Add(add);
-                }
 
             }
             Entities.GetContext().SaveChanges();
